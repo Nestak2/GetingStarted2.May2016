@@ -58,7 +58,7 @@ def main():
 #     plt.legend(leg, loc = 5, prop={'size':8})
 #     ax.legend(bbox_to_anchor=(1.05, 0), loc='lower left', borderaxespad=0.)
 #     fig.legend(curves_names, leg, bbox_to_anchor=(0.5, -0.15))
-#     plt.savefig("bin_width=500wanted_bin=0.png")    
+#     plt.savefig("bin_width=500wanted_bin=9.png")    
 #     figtext(.0,.0,'From top to botom:\n' + str(files) , fontsize=8)
 
     fig.suptitle("average spectrum of pixels in brightnes bin = %r for bin width = %r" %(wanted_bin, bin_width), fontsize=12)
@@ -67,7 +67,7 @@ def main():
    
 
     
-def binning(loop_count, bin_width=500, wanted_bin=0):
+def binning(loop_count, bin_width=500, wanted_bin=9):
     """A function creating brightness bins of pixels, and eventualy a map, in the given spectral cube"""
     # 1. create the array of bins - bin_arr
     # maybe use for that the hint below!
