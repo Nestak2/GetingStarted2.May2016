@@ -11,14 +11,13 @@ import scipy.ndimage as nd
 import astropy.units as u
 
 
-
 files =['NGC1333_NH3_11_DR1.fits', 'NGC1333_NH3_22_DR1.fits', 'NGC1333_NH3_33_DR1.fits', 
        'NGC1333_C2S_DR1.fits',
        'NGC1333_HC5N_DR1.fits',
         'NGC1333_HC7N_21_20_DR1.fits', 'NGC1333_HC7N_22_21_DR1.fits']
 
 
-def main(bin_width=500, thisbin=9):   
+def main(bin_width=500, thisbin=0):   
     # This is the main routine.
     loop_count = 0
     fig = plt.figure(figsize=(10,7))
@@ -48,12 +47,12 @@ def main(bin_width=500, thisbin=9):
 #     plt.legend(leg, loc = 5, prop={'size':8})
 #     ax.legend(bbox_to_anchor=(1.05, 0), loc='lower left', borderaxespad=0.)
 #     fig.legend(curves_names, leg, bbox_to_anchor=(0.5, -0.15))
-#    plt.savefig("ImprovedCodeBin_width=500wanted_bin=0.png", pad_inches=5, bbox_inches='tight')    
+#    plt.savefig("May13.AllImplementedBin_width=%rThisbin=%r.png" %(bin_width, thisbin))    
 #     figtext(.0,.0,'From top to botom:\n' + str(files) , fontsize=8)
     fig.suptitle("average spectrum of pixels in brightnes bin = %r for bin width = %r" %(thisbin, bin_width), fontsize=12)
     plt.show()
 
-def binning(f_nam, bin_width=500, thisbin=9):
+def binning(f_nam, bin_width=500, thisbin=0):
     """A function creating brightness bins of pixels, and eventualy a map, in the given spectral cube"""
     cube = SpectralCube.read(f_nam)
     cube = cube.with_spectral_unit(u.km/u.s,velocity_convention='radio')
