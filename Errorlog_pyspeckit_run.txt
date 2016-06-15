@@ -1,0 +1,36 @@
+---------------------------------------------------------------------------
+ValueError                                Traceback (most recent call last)
+<ipython-input-5-38319987fce7> in <module>()
+    295 
+    296 
+--> 297 main(this_bin, bin_width)
+
+<ipython-input-5-38319987fce7> in main(this_bin, bin_width)
+     47 #     t, table_names = make_table(files, map_name, this_bin, bin_width, y, x)
+     48 #     plot_table(files, map_name, this_bin, bin_width, y, x)
+---> 49     spec_curve_fit()
+     50 #     return t
+     51     return something
+
+<ipython-input-5-38319987fce7> in spec_curve_fit()
+    272 
+    273 #     # This joins all the spectra together into one object.
+--> 274     allspec = psk.Spectra([sp11,sp22,sp33])
+    275 #     allspec.xarr.as_unit('Hz',velocity_convention='radio')
+    276 #     # This add the cold_ammonia model to the list of things we can use for fitting
+
+/home/nestor/anaconda2/lib/python2.7/site-packages/pyspeckit-0.1.20.dev2376-py2.7.egg/pyspeckit/spectrum/classes.pyc in __init__(self, speclist, xunit, model_registry, **kwargs)
+    884         log.info("Concatenating data")
+    885 
+--> 886         self.xarr = units.SpectroscopicAxes([sp.xarr.as_unit(xunit) for sp in speclist])
+    887         self.xarr.set_unit(u.Unit(xunit))
+    888         self.xarr.xtype = u.Unit(xunit)
+
+/home/nestor/anaconda2/lib/python2.7/site-packages/pyspeckit-0.1.20.dev2376-py2.7.egg/pyspeckit/spectrum/units.pyc in __new__(self, axislist, frame, xtype, refX, redshift)
+    944         # else, refX is undefined and velocity transformations should not be done
+    945         refXs_diff = np.sum([axislist[0].refX != ax.refX for ax in axislist])
+--> 946         if refXs_diff > 0:
+    947             subarr.refX = None
+    948             subarr.refX_unit = None
+
+ValueError: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
